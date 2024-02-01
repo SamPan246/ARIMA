@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+</head>
+<body>
+  
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    </script>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">ARIMA</a>
+    <a href="#predict" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Predict</a>
+    <a href="#learn" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#predict" class="w3-bar-item w3-button w3-padding-large">Predict</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Learn</a>
+   
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <p class="w3-xlarge">Autoregressive Integrated Moving Average (ARIMA) is one of the most commonly used models for time series predictive analytics. In this tool, you can make stock forecasts using ARIMA. This process will be explained in a simple manner, allowing you to develop a better understanding of the ML algorithm!</p>
+ 
+</header>
+
+<!-- First Grid -->
+<section id="predict">
+ 
+ 
+      <h1 style="padding-left: 700px;">Predict</h1>
+      <div style="padding-left: 125px; padding-top: 50px;">
+      <h5>Try the Stock predicting tool, where ARIMA will predict past stock prices!</h5>
+      <!--img src = "image.png" width="700" height="450"/-->
+      <img src="static/image.png" width="700" height="450"/>
+
+      
+      <form action = "" method = "POST">
+        <input type="text" id="stock_name" name="stock_name" placeholder="Enter Stock Symbol: PXD">
+        <input type="submit" value="OK">
+    </form>
+        <h2>MAPE for this prediction: 0.015055042849526825</h2>
+        <h2>Accuracy: 98.6%</h2>
+      </div>
+
+   
+<h3 style="position: relative; left:900px; bottom: 550px; color:rgb(46, 45, 45);">Get a full breakdown of the code <a href="https://colab.research.google.com/drive/1rOozFZsdYBtHHYQlB7TahIUhdPmW_8rD#scrollTo=kTOYdB9W-2gZ">here</a></h3>
+<button onclick="myFunction()" style="position: relative; left:950px; bottom: 450px; font-size: 35px; width: 300px; height: 100px; padding: 25px; background-color: #f44336; color: white; border: none;">The Process</button>
+<div id="myDIV" style="position: relative; left: 900px; bottom: 400px; width: 400px; border: 5px;">To begin this process, the code first takes in the provided stock symbol, and gathers the closing prices of that stock from the past 5 years. 
+  We take this large time frame of data so that we can train our ARIMA model with training data, and test it out on the testing data(forecasting). The training data is based on 90% of the stock data, whereas the testing data takes up the minority 10%. Once this train/test data is specified, we create an ARIMA model and set it up with various variables and parameters(Learn). We then conclude the best order of our ARIMA model, and fit it to the train data. With this, we can plot the entire 5 years of data, where the training data is shown in light blue, the testing data being shown in dark blue, and the ARIMA predictions being shown in yellow. MAPE stands for mean absolute error, which is measurement of accuracy. Around 2.5% MAPE indicates 97.5% accuracy.</div>
+</section>
+<!-- Second Grid -->
+<section id="learn">
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+    </div>
+
+    
+      <h1 style="width: 100px;">Learn
+        _________
+      </h1>
+      <h5>Machine learning serves many purposes, one specific role being that it predicts and forecasts data. An algorithm known as ARIMA, which stands for AutoRegressive Integrated Moving Average, is specialized for time series forecasting. Time series data is essentially data points in a time sequence which ARIMA can analyze and forecast based on four variables; p, d, q, and s.   </h5>
+
+<h2>P</h2>
+
+      <h5>The autoregressive component of ARIMA is represented in the order variable known as p, which indicates how many past data points in the time series are actually used in the model to make a forecast. In other words, the value of p determines how far back the model goes to analyze past data, which aids it in predictions. Another forecast predictor includes forecast errors, which are the differences between a predicted value and the actual one.</h5>
+      
+    <h2>Q</h2>
+
+        <h5>The moving average in ARIMA is specified through the variable of q, which determines the number of past forecast errors(or fluctuations in data) in the time series that are used to predict. For instance, in a stock perspective, a higher q value would indicate that there are more spikes/dips in the data, meaning the model would rely more on them to make better predictions.</h5>
+       
+    <h2>D</h2>
+
+        <h5>The d variable resembles the integrated average, which is a metric of how many times the time series data is made stationary. This process, also known as differencing, involves subtracting a previous data value from the current one, making the values have constant means and variance, making the overall time series easy to analyze and predict via ARIMA. Essentially, stationary data means that the dependent variable has no relationship with time(IV), and stays constant.</h5>
+       
+      <h2>S</h2>
+
+        <h5>Finally, the s variable in ARIMA accounts for the seasonal order of the data, which measures the number of time units in a particular seasonal cycle. For instance, if data was analyzed in yearly seasonality, the s variable would be 12 for monthly data.
+        
+          
+      <h2>Example:</h2>
+      
+          <h5>With the use of these 4 variables, ARIMA is able to analyze data and make future predictions upon it. A primary source of time-series data is stock prices, which ARIMA can forecast the difference between its predictions and actual values of them. Let’s walk through an example, analyzing a model through a stock lens. A standard ARIMA model is 1,0,0, following the order of p, d, and q. In this case, p being set to one means that the model only looks as far back as one previous day to predict the current stock price(essentially uses yesterday to predict today). D in this model is set as 0, meaning there is no differencing involved with the data, and it is already stationary. Lastly, q is also set to 0 here, meaning that it doesn’t rely at all on past forecast errors in predicting stock prices. You might wonder, where is the fourth variable, S? In order to add seasonality to the model, you would need to configure another set of three seasonal variables in a set order, which involves a separate process. These types of models are known as SARIMA.</h5>       
+   
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge"></h1>
+</div>
+</section>
+
+
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
